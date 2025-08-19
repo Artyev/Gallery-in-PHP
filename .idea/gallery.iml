@@ -5,6 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/module/Application/src" isTestSource="false" packagePrefix="Application\" />
       <sourceFolder url="file://$MODULE_DIR$/module/Application/test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/module/Application/test" isTestSource="true" packagePrefix="ApplicationTest\" />
+      <sourceFolder url="file://$MODULE_DIR$/module/Gallery/src" isTestSource="false" packagePrefix="Gallery\" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/amphp/amp" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/amphp/byte-stream" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/brick/varexporter" />
