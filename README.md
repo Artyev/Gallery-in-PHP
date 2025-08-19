@@ -1,3 +1,5 @@
+Project design:
+
 For this gallery we need four pages:
 1. List of photos
 2. Add new photo
