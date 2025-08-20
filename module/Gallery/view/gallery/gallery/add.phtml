@@ -1,0 +1,20 @@
+<?php
+
+$title = 'Add new photo';
+$this->headTitle($title);
+?>
+    <h1><?= $this->escapeHtml($title) ?></h1>
+<?php
+$form->setAttribute('action', $this->url('photo', ['action' => 'add']));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formHidden($form->get('id'));
+echo $this->formRow($form->get('name'));
+echo $this->formRow($form->get('type'));
+echo $this->formRow($form->get('size'));
+echo $this->formRow($form->get('width'));
+echo $this->formRow($form->get('height'));
+echo $this->formRow($form->get('uploadtime'));
+echo $this->formSubmit($form->get('submit'));
+echo $this->form()->closeTag();

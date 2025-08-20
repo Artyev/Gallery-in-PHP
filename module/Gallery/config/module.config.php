@@ -2,6 +2,7 @@
 
 namespace Gallery;
 
+use Laminas\ServiceManager\AbstractFactory\ReflectionBasedAbstractFactory;
 use Gallery\Model\GalleryTableFactory;
 use Laminas\Router\Http\Segment;
 use Laminas\ServiceManager\Factory\InvokableFactory;
@@ -9,7 +10,7 @@ use Laminas\ServiceManager\Factory\InvokableFactory;
 return [
     'controllers' => [
         'factories' => [
-            Controller\GalleryController::class => InvokableFactory::class,
+            Controller\GalleryController::class => ReflectionBasedAbstractFactory::class
         ],
     ],
 
@@ -36,6 +37,12 @@ return [
     'view_manager' => [
         'template_path_stack' => [
             'gallery' => __DIR__ . '/../view',
+        ],
+    ],
+
+    'service_manager' => [
+        'factories' => [
+            Model\GalleryTable::class => GalleryTableFactory::class,
         ],
     ],
 ];

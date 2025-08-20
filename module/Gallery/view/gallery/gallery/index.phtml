@@ -1,0 +1,35 @@
+<?php
+$title = 'My photos';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p>
+    <a href="<?= $this->url('gallery', ['action' => 'add']) ?>">Add new photo</a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Size</th>
+        <th>Width</th>
+        <th>Height;</th>
+        <th>UploadTime;</th>
+        <th>&nbsp;</th>
+    </tr>
+    <?php foreach ($galleries as $gallery) : ?>
+        <tr>
+            <td><?= $this->escapeHtml($gallery->name) ?></td>
+            <td><?= $this->escapeHtml($gallery->type) ?></td>
+            <td><?= $this->escapeHtml($gallery->size) ?></td>
+            <td><?= $this->escapeHtml($gallery->width) ?></td>
+            <td><?= $this->escapeHtml($gallery->height) ?></td>
+            <td><?= $this->escapeHtml($gallery->uploadtime) ?></td>
+
+            <td>
+                <a href="<?= $this->url('gallery', ['action' => 'view', 'id' => $gallery->id]) ?>">View</a>
+                <a href="<?= $this->url('gallery', ['action' => 'delete', 'id' => $gallery->id]) ?>">Delete</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+</table>
