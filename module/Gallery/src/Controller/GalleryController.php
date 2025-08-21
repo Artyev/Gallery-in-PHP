@@ -35,16 +35,16 @@ class GalleryController extends AbstractActionController
             return ['form' => $form];
         }
 
-        $album = new Gallery();
-        $form->setInputFilter($album->getInputFilter());
+        $gallery = new Gallery();
+        $form->setInputFilter($gallery->getInputFilter());
         $form->setData($request->getPost());
 
         if (! $form->isValid()) {
             return ['form' => $form];
         }
 
-        $album->exchangeArray($form->getData());
-        $this->table->saveAlbum($album);
+        $gallery->exchangeArray($form->getData());
+        $this->table->saveGallery($gallery);
         return $this->redirect()->toRoute('gallery');
     }
 

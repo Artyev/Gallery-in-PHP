@@ -7,9 +7,7 @@ use Laminas\Filter\StringTrim;
 use Laminas\Filter\StripTags;
 use Laminas\Filter\ToInt;
 use Laminas\InputFilter\InputFilter;
-use Laminas\InputFilter\InputFilterAwareInterface;
 use Laminas\InputFilter\InputFilterInterface;
-use Laminas\Validator\GreaterThan;
 use Laminas\Validator\StringLength;
 
 class Gallery
@@ -24,15 +22,15 @@ class Gallery
 
     private $inputFilter;
 
-    public function exchangeArray(array $array): void
+    public function exchangeArray(array $data): void
     {
-        $this->id     = ! empty($array['ID']) ? $array['ID'] : null;
-        $this->name = ! empty($array['Name']) ? $array['Name'] : null;
-        $this->type  = ! empty($array['Type']) ? $array['Type'] : null;
-        $this->size  = ! empty($array['Size']) ? $array['Size'] : null;
-        $this->width  = ! empty($array['Width']) ? $array['Width'] : null;
-        $this->height  = ! empty($array['Height']) ? $array['Height'] : null;
-        $this->uploadtime  = ! empty($array['UploadTime']) ? $array['UploadTime'] : null;
+        $this->id        = $data['id'] ?? null;
+        $this->name      = $data['name'] ?? null;
+        $this->type      = $data['type'] ?? null;
+        $this->size      = $data['size'] ?? null;
+        $this->width     = $data['width'] ?? null;
+        $this->height    = $data['height'] ?? null;
+        $this->uploadtime = $data['uploadtime'] ?? null;
     }
 
     public function setInputFilter(InputFilterInterface $inputFilter)

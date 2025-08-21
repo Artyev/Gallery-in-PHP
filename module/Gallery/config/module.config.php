@@ -5,7 +5,6 @@ namespace Gallery;
 use Laminas\ServiceManager\AbstractFactory\ReflectionBasedAbstractFactory;
 use Gallery\Model\GalleryTableFactory;
 use Laminas\Router\Http\Segment;
-use Laminas\ServiceManager\Factory\InvokableFactory;
 
 return [
     'controllers' => [

@@ -2,7 +2,6 @@
 
 namespace Gallery\Form;
 
-use Laminas\Form\Element\DateTimeLocal;
 use Laminas\Form\Element\Hidden;
 use Laminas\Form\Element\Number;
 use Laminas\Form\Element\Submit;

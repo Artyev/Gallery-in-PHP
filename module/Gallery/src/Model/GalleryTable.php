@@ -34,15 +34,15 @@ class GalleryTable
         return $row;
     }
 
-    public function Gallery(Gallery $gallery)
+    public function saveGallery(Gallery $gallery)
     {
         $data = [
-            'name' => $gallery->name,
-            'type'  => $gallery->type,
-            'size'  => $gallery->size,
-            'width'  => $gallery->width,
-            'height'  => $gallery->height,
-            'uploadtime'  => $gallery->uploadtime,
+            'Name' => $gallery->name,
+            'Type'  => $gallery->type,
+            'Size'  => $gallery->size,
+            'Width'  => $gallery->width,
+            'Height'  => $gallery->height,
+            'UploadTime'  => $gallery->uploadtime,
         ];
 
         $id = (int) $gallery->id;
