@@ -1,0 +1,17 @@
+<h2>Photo Details</h2>
+
+<div class="photo-container">
+    <img src="<?= $this->escapeHtml($gallery->path) ?>"
+         alt="<?= $this->escapeHtml($gallery->name) ?>"
+         style="max-width:100%; height:auto; border:1px solid #ccc; padding:5px;">
+</div>
+
+<p><?= $this->escapeHtml($gallery->name) ?></p>
+
+<ul>
+    <li>Type: <?= $this->escapeHtml($gallery->type) ?></li>
+    <li>Size: <?= number_format($gallery->size / 1024, 2) ?> KB</li>
+    <li>Dimensions: <?= $gallery->width ?> x <?= $gallery->height ?></li>
+</ul>
+
+<a href="<?= $this->url('gallery') ?>">Back to gallery</a>

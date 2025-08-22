@@ -42,6 +42,7 @@ class GalleryTable
         $data = [
             'name' => $gallery->name,
             'type'  => $gallery->type,
+            'path' => $gallery->path,
             'size'  => $gallery->size,
             'width'  => $gallery->width,
             'height'  => $gallery->height,

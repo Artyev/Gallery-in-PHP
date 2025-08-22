@@ -2,7 +2,8 @@ CREATE TABLE gallery(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(100) NOT NULL,
     type VARCHAR(100) NOT NULL,
-    size INT NOT NULL, -- size in bytes
+    path VARCHAR(255) NOT NULL,
+    size INT NOT NULL,
     width INT NOT NULL,
     height INT NOT NULL,
     uploadtime TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL

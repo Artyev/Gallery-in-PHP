@@ -11,7 +11,7 @@ $this->headTitle($title);
     <tr>
         <th>Name</th>
         <th>Type</th>
-        <th>Size in MB</th>
+        <th>Size</th>
         <th>Width</th>
         <th>Height</th>
         <th>Upload Time</th>
@@ -21,7 +21,7 @@ $this->headTitle($title);
         <tr>
             <td><?= $this->escapeHtml($gallery->name) ?></td>
             <td><?= $this->escapeHtml($gallery->type) ?></td>
-            <td><?= $this->escapeHtml($gallery->size) / 1000000 ?></td>
+            <td><?= number_format($gallery->size / 1024, 2) ?> KB</td>
             <td><?= $this->escapeHtml($gallery->width) ?></td>
             <td><?= $this->escapeHtml($gallery->height) ?></td>
             <td><?= $this->escapeHtml($gallery->uploadtime) ?></td>

@@ -15,6 +15,7 @@ class Gallery
     public $id;
     public $name;
     public $type;
+    public $path;
     public $size;
     public $width;
     public $height;
@@ -26,6 +27,7 @@ class Gallery
     {
         $this->id        = $data['id'] ?? null;
         $this->name      = $data['name'] ?? null;
+        $this->path      = $data['path'] ?? null;
         $this->type      = $data['type'] ?? null;
         $this->size      = $data['size'] ?? null;
         $this->width     = $data['width'] ?? null;
@@ -90,6 +92,25 @@ class Gallery
                         'encoding' => 'UTF-8',
                         'min' => 1,
                         'max' => 100,
+                    ],
+                ],
+            ],
+        ]);
+
+        $inputFilter->add([
+            'name' => 'path',
+            'required' => true,
+            'filters' => [
+                ['name' => StripTags::class],
+                ['name' => StringTrim::class],
+            ],
+            'validators' => [
+                [
+                    'name' => StringLength::class,
+                    'options' => [
+                        'encoding' => 'UTF-8',
+                        'min' => 1,
+                        'max' => 255,
                     ],
                 ],
             ],
