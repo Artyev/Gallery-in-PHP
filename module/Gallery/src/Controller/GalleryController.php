@@ -38,7 +38,6 @@ class GalleryController extends AbstractActionController
         $gallery = new Gallery();
         $form->setInputFilter($gallery->getInputFilter());
         $form->setData($request->getPost());
-
         if (! $form->isValid()) {
             return ['form' => $form];
         }
@@ -50,6 +49,25 @@ class GalleryController extends AbstractActionController
 
     public function deleteAction()
     {
+        $id = (int) $this->params()->fromRoute('id', 0);
+        if (! $id) {
+            return $this->redirect()->toRoute('gallery');
+        }
+
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            $del = $request->getPost('del', 'No');
+
+            if ($del == 'Yes') {
+                $id = (int) $request->getPost('id');
+                $this->table->deleteGallery($id);
+            }
+            return $this->redirect()->toRoute('gallery');
+        }
+        return [
+            'id'    => $id,
+            'gallery' => $this->table->getGallery($id),
+        ];
     }
 
     public function viewAction()

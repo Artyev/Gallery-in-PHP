@@ -1,20 +1,69 @@
 <?php
-
-$title = 'Add new gallery';
+$title = 'Add new photo';
 $this->headTitle($title);
 ?>
     <h1><?= $this->escapeHtml($title) ?></h1>
 <?php
+$album = $form->get('name');
+$album->setAttribute('class', 'form-control');
+$album->setAttribute('placeholder', 'name');
+
+$artist = $form->get('type');
+$artist->setAttribute('class', 'form-control');
+$artist->setAttribute('placeholder', 'type');
+
+$artist = $form->get('size');
+$artist->setAttribute('class', 'form-control');
+$artist->setAttribute('placeholder', 'size');
+
+$artist = $form->get('width');
+$artist->setAttribute('class', 'form-control');
+$artist->setAttribute('placeholder', 'width');
+
+$artist = $form->get('height');
+$artist->setAttribute('class', 'form-control');
+$artist->setAttribute('placeholder', 'height');
+
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary');
+
 $form->setAttribute('action', $this->url('gallery', ['action' => 'add']));
 $form->prepare();
 
 echo $this->form()->openTag($form);
+?>
+    <div class="form-group">
+        <?= $this->formLabel($form->get('name')) ?>
+        <?= $this->formElement($form->get('name')) ?>
+        <?= $this->formElementErrors($form->get('name'), ['class' => 'help-block']) ?>
+    </div>
+
+    <div class="form-group">
+        <?= $this->formLabel($form->get('type')) ?>
+        <?= $this->formElement($form->get('type')) ?>
+        <?= $this->formElementErrors($form->get('type'), ['class' => 'help-block']) ?>
+    </div>
+
+    <div class="form-group">
+        <?= $this->formLabel($form->get('size')) ?>
+        <?= $this->formElement($form->get('size')) ?>
+        <?= $this->formElementErrors($form->get('size'), ['class' => 'help-block']) ?>
+    </div>
+
+    <div class="form-group">
+        <?= $this->formLabel($form->get('width')) ?>
+        <?= $this->formElement($form->get('width')) ?>
+        <?= $this->formElementErrors($form->get('width'), ['class' => 'help-block']) ?>
+    </div>
+
+    <div class="form-group">
+        <?= $this->formLabel($form->get('height')) ?>
+        <?= $this->formElement($form->get('height')) ?>
+        <?= $this->formElementErrors($form->get('height'), ['class' => 'help-block']) ?>
+    </div>
+
+
+<?php
+echo $this->formSubmit($submit);
 echo $this->formHidden($form->get('id'));
-echo $this->formRow($form->get('name'));
-echo $this->formRow($form->get('type'));
-echo $this->formRow($form->get('size'));
-echo $this->formRow($form->get('width'));
-echo $this->formRow($form->get('height'));
-echo $this->formRow($form->get('uploadtime'));
-echo $this->formSubmit($form->get('submit'));
 echo $this->form()->closeTag();

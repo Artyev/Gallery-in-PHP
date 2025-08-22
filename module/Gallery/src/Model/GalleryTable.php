@@ -36,13 +36,16 @@ class GalleryTable
 
     public function saveGallery(Gallery $gallery)
     {
+        $currentDate = date_create(date('Y-m-d H:i:s'));
+        date_add($currentDate, date_interval_create_from_date_string("2 hours"));
+        $result = $currentDate->format('Y-m-d H:i:s');
         $data = [
-            'Name' => $gallery->name,
-            'Type'  => $gallery->type,
-            'Size'  => $gallery->size,
-            'Width'  => $gallery->width,
-            'Height'  => $gallery->height,
-            'UploadTime'  => $gallery->uploadtime,
+            'name' => $gallery->name,
+            'type'  => $gallery->type,
+            'size'  => $gallery->size,
+            'width'  => $gallery->width,
+            'height'  => $gallery->height,
+            'uploadtime'  => $result,
         ];
 
         $id = (int) $gallery->id;
